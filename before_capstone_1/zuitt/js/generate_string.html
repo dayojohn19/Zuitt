@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function makeid(length) {
+    var result           = '';
+    var characters       = '1234567890';
+    var charactersLength = characters.length;
+    for ( var i = 0; i < length; i++ ) {
+      result += characters.charAt(Math.floor(Math.random() * 
+ charactersLength));
+   }
+   return result;
+}
+document.addEventListener("DOMContentLoaded",()=>{
+z = makeid(2);
+y = document.querySelector("#show").innerHTML =z;
+yy =document.querySelector("#show2").innerHTML = '2344'
+
+
+do {
+    xx = makeid(yy.length);
+    //console.log(xx);
+    ee = document.createElement('div');
+ei = ee.innerHTML = xx;
+document.querySelector("#results").append(ee);
+var ii = document.querySelector("#results");
+    y = xx
+}
+while (y != yy);
+document.querySelector("#success").innerHTML = y;
+
+
+
+
+
+});
+
+
+
+
+
+    </script>
+        Username
+        <div id="show"></div>
+        Password:
+        <div id="show2"></div>
+        <br>
+        Your Password is :<div id="success"></div>
+        <br>
+        Result: <div id="results"></div>
+        
+</body>
+
+</html>
