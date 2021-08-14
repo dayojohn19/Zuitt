@@ -7,10 +7,153 @@
     <title>Document</title>
     <link rel="stylesheet" href="styles.css
     ">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="tutorials/git_fork/git_fork.css">
+    <link rel="stylesheet" href="tutorials/git_repositories/git_styles.css">
+    <link rel="stylesheet" href="media_750_min.css">
+    <link rel="stylesheet" href="media_all_size.css">
+    <script src="index.js"></script>
+
 </head>
 <body>
-    <a href="tutorials/git/index.html">GitHub Instruction Hack</a>
-    <br>
-    <a href="tutorials/git_fork/index.html">GitHub Collaborate</a>
+    <ul class="nav flex-column">
+        <div class="vertical-menu">
+            <h1 class="tutorials">Tutorials</h1>
+            <li class="nav-item">
+                <a onclick="git_repositories()">GitHub make Project</a>
+            </li>
+            <li class="nav-item">
+                <a onclick="git_fork()">GitHub Collaborate</a>
+            </li>
+        </div>
+      </ul>
+<div class="git_fork">
+    <h1 class="heading">How To collaborate to GitHub</h1>
+    <div>
+        <img src="tutorials/git_fork/images/fork.png" alt="fork">
+        <p>Got to the Project you want to contribute
+            CLick<strong> Fork</strong> located on <strong>Uppler Right</strong>
+        </p>
+    </div>
+    <div class="line"></div>
+    <div>
+        <img src="tutorials/git_fork/images/fork2.png">
+        <p>You will see your <strong>name/Project_name</strong>
+        and the owner's
+        </p>
+    </div>
+    <div class="line"></div>
+    <div>
+        <img src="tutorials/git_fork/images/copy.png">
+        <p>Copy the link above 
+        </p>
+    </div>
+    <div class="line"></div>
+    <div>
+        <img style="width: 100%;" src="tutorials/git_fork/images/paste.png">
+        <p>on your termunal type 
+            <strong>git clone *Paste_Link*</strong>
+            Now you Have your own copy
+        </p>
+    </div>
+    <div class="line"></div>
+
+    <div>
+        <img style="width: 100%;" src="tutorials/git_fork/images/branch-1.png">
+        <p>In your <strong>CLI</strong><br>
+        Type <br>
+        <strong><input value="git checkout -b"> <input style="width: 50%;" placeholder="Your Branch Name"></strong>
+    </p>
+<p>   also type     <br><strong>
+    <input value="git add ."></strong><br>
+    <strong><input style="width: 50%;" value="git commit -am 'my_changes'"></strong><br></p>
+    </div>
+
+<div class="line"></div>
+    <div>
+        <img src="tutorials/git_fork/images/owner.png">
+        <p>on your CLI Type </p>
+        <strong><input value="git remote -v"></strong><br>
+        <strong><input style="width: 50%;" value="git remote add upstream "> then
+        <input placeholder="*Paste_Owner_Link*"></strong><br>
+        <p>
+            <strong>on your CLI type<br> <input value="git remote -v"></strong>
+            <br>Your should see <strong>Origin</strong>
+            and <strong>upstream</strong>
+        </p>
+        <p>
+            type 
+            <br>
+            <input value="git add ."><br>
+            <input value="git push">
+        </p>
+    </div>
+<div class="line"></div>
+
+</div>
+
+<div class="git_repositories">
+    <h1 class="heading">How To Easily communicate to Git Hub</h1>
+    <div>
+        <img src="tutorials/git_repositories/git-images/Untitled.png">
+        <p>Fist on <strong>upper Left</strong> search <strong>Your Repositories</strong>
+        </p>    
+    </div>
+    <div>
+        <img src="tutorials/git_repositories/git-images/new.png">
+        <p>Click <strong>New</strong> upper right </p>
+    </div>
+    <div>
+        <img src="tutorials/git_repositories/git-images/create.png">
+        <p>Click <strong>Create Repository</strong>
+        </p>
+    </div>
+    <div>
+        <img src="tutorials/git_repositories/git-images/copy.png">
+        <p>
+            copy the <strong>URL</strong>
+            of the web page
+        </p>
+    </div>
+    <div>
+        <img src="tutorials/git_repositories/git-images/type.png">
+        <p>
+            on your <strong>CLI</strong>
+            type: <strong>git clone</strong>
+            and paste the <strong>URL link a</strong>
+            it will look like 
+            <strong>git clone https://yourlink.git</strong>
+            hit enter
+        </p>
+    </div>
+    <div>
+        <img src="tutorials/git_repositories/git-images/copy2.png">
+        <p>
+            <strong>copy</strong> all your files to the <strong>folder</strong> that you clone from GitHub
+        </p>
+    </div>
+    <div>
+        <img src="tutorials/git_repositories/git-images/add.png">
+        <p>and then on your CLI 
+            type <strong>git add .</strong>
+        </p>
+    </div>
+    <div>
+        <img src="tutorials/git_repositories/git-images/commit.png">
+        <p>on your CLI again type
+            <strong>git commit -am 'your comment'</strong>
+        </p>
+    </div>
+    <div>
+        <img src="tutorials/git_repositories/git-images/push.png">
+        <p>
+            on your CLI again type<strong>
+                git push</strong><br>
+                and then go to your git hub page and see your files
+        </p>
+    </div>
+</div>
+
+
 </body>
 </html>
