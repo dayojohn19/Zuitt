@@ -1,0 +1,87 @@
+* {
+	font-family: sans-serif;
+}
+
+/*DRY*/
+/*Do not repeat yourself*/
+
+.text-red {
+	color: red;
+}
+
+
+/*class
+id
+attribute
+universal
+type*/
+
+/*combinators*/
+	/*uses two or more selector*/
+
+	/*Descendat Selector*/
+		/*matches all elements that are decendants of a specified element*/
+
+
+		div p {
+			background-color: lightgreen;
+		}
+
+
+	/*Child selector*/
+		/*matches all children of a specified element*/
+		/*.parent > p {
+			background-color: lightblue;
+		}*/
+
+		/*
+			div section > p {
+				background-color: red;
+			}
+		*/
+
+	/*adjacent sibling selector*/
+	/*selects the immediate sibling of the specified element*/
+	section + p {
+		background-color: pink;
+	}
+
+	/*h1 + p {
+		text-decoration: underline;
+	}*/
+
+	/*general sibling selector*/
+	section ~ p {
+		background-color: red;
+	}
+
+
+/*Pseudo Selectors*/
+	/*Pseudo classes*/
+	/*element:pseudo-class {
+	}*/
+
+	/*hover*/
+	h1:hover {
+		color: blue;
+	}
+
+	a:hover {
+		color: red;
+	}
+
+	a:link {
+		/*selects links that are not yet visited*/
+		color: green;
+	}
+	a:visited {
+		/*selects links that are visited*/
+	}
+	
+	button:active,
+	input:focus {
+		background-color: yellow;
+	}
+	/*	input:focus {
+			background-color: yellow;
+		}*/
