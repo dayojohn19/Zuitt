@@ -4,7 +4,10 @@
 .git_repositories {
     display: none;
 }
-
+strong{
+  color: red;
+  
+}
 a {
     text-decoration: none;
     color: black;
