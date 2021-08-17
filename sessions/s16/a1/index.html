@@ -9,14 +9,17 @@
     </script>
 </head>
 <body>
+
 <form onsubmit="submit()">
     <input required id="first" placeholder="First id">
     <input required type="text" id="last" id="" placeholder="Last id">
     <input required type="email" id="email" id="" placeholder="email">
     <input required type="password" id="password" placeholder="password" minlength="8">
-    <input required type="password" id="password2" id="" placeholder="confirm password">
-    <input required type="submit" onsubmit="submit()">
+    <input required onchange="confirm()" type="password_two" id="password2" id="" placeholder="confirm password">
+    <input type="submit">
 </form>
+ 
+
 </body>
 
 </html>

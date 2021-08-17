@@ -5,6 +5,7 @@ function submit() {
     p1 = document.querySelector("#password").value;
     p2 = document.querySelector("#password2").value;
 
+ 
     if (p1 != p2){
         alert("Password Must Match");
     }else {
@@ -16,3 +17,9 @@ function submit() {
         alert("thanks for Signing up");
     }
 }
+function confirm() {
+    p1 = document.querySelector("#password").value;
+    p2 = document.querySelector("#password2").value;
+    if (p1 != p2) {alert('password must match');}
+}
+console.log('aaadd');
