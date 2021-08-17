@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-
+    <script src="index.js">
+    </script>
 </head>
 <body>
 <form onsubmit="submit()">
@@ -14,26 +15,8 @@
     <input required type="email" id="email" id="" placeholder="email">
     <input required type="password" id="password" placeholder="password" minlength="8">
     <input required type="password" id="password2" id="" placeholder="confirm password">
-    <input required type="submit">
+    <input required type="submit" onsubmit="submit()">
 </form>
 </body>
-<script src="index.js">
-function submit() {
-    f = document.querySelector("#first").value;
-    l = document.querySelector("#last").value;
-    e = document.querySelector("#email").value;
-    p1 = document.querySelector("#password").value;
-    p2 = document.querySelector("#password2").value;
 
-    if (p1 != p2){
-        alert("Password Must Match");
-    }
-        console.log(f);
-        console.log(l);
-        console.log(e);
-        console.log(p1);
-        console.log(p2);
-
-}
-</script>
 </html>
