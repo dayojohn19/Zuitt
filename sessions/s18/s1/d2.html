@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    skipping the number if not divisible by 10
+    <script>
+        let n = 100;
+        do {
+            n-= 5;
+            if((n % 10)=== 0 ){
+                console.log(n +' is divisible by 10');
+            }else{
+                console.log(n);
+            }
+            if (n == 50){
+                console.log(n+' we break');
+                break;
+            }
+        } while (n!= 0)
+    </script>
+</body>
+</html>
