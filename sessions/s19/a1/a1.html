@@ -8,20 +8,20 @@
 </head>
 <body>
     <script>
-        let myPokemon = {
-            name: "magmar",
-            level: 3,
-            health: 100,
-            attack: 50,
-            tackle: function(){
-                console.log(`this pokemon tackled targetPokemon`);
-                console.log(`TargetPokemon's health is now reduced to targetPokemon`)
-            },
-            faint: function(){
-                console.log("Pokemon fainted")
-            }
-        }
-        console.log(myPokemon);
+        // let myPokemon = {
+        //     name: "magmar",
+        //     level: 3,
+        //     health: 100,
+        //     attack: 50,
+        //     tackle: function(){
+        //         console.log(`this pokemon tackled targetPokemon`);
+        //         console.log(`TargetPokemon's health is now reduced to targetPokemon`)
+        //     },
+        //     faint: function(){
+        //         console.log("Pokemon fainted")
+        //     }
+        // }
+        // console.log(myPokemon);
 
 
         function Pokemon(x1, attack, health){
@@ -30,36 +30,68 @@
             this.health = health;
             this.attack = attack;
             this.tackle = function(target){
+                console.log('*******************************************');
                 console.log(`${this.name} tackled ${target.name}`);
-                console.log(`${target.name}'s health is now reduced to ${target.health - this.attack}`);
+                console.log(`** ${target.name}'s health is now reduced to ${target.health - this.attack} **`);
                 target.health = target.health - this.attack;
+                targetCurrentHealth = parseInt(target.health);
+                if(targetCurrentHealth <20) {
+                    bleed(`${target.name}`, `${this.name}`);
+                }
+                if( targetCurrentHealth < 10) {
+                    faint(`${target.name}`, `${this.name}`);
+                }else {
+                    console.log( target.name + `: ouch`);
+                }
+
             };
-            this.faint = function(){
-                console.log(`${this.name} Fainted`);
-            }
         }
 
-        let magmar = new Pokemon("magmar", 5, 50);
-        let magnetite = new Pokemon("magnetite", 8, 40);
-        console.log(magmar.tackle(magnetite))
-        // console.log(magmar);
-        // console.log(magnetite);
+        let magmar = new Pokemon("Magmar", 5, 50);
+        let magnetite = new Pokemon("Magnetite", 8, 40);
+
+
+
+        function bleed(pokemon, attacker) {
+            console.log(attacker + ':  Youre dead ' + pokemon );
+        }
+        function faint(pokemon, attacker) {
+            console.log(pokemon + 'has fainted');
+            alert(pokemon + ' has fainted');
+            console.log(attacker + ' has won the match');
+            alert("Congratulations !! " + ` ${attacker}`);
+        }
 
         function magmar_attack(){
-            magmar.tackle(magnetite)
+            magmar.tackle(magnetite);
         }
         function magnetite_attack(){
-            magnetite.tackle(magmar)
+            magnetite.tackle(magmar);
         }
     </script>
+
+
+    
+<div class="container">
     <h1>Click the button to attack</h1>
-<button onclick="magnetite_attack()">magnetite tackle</button>
-<button onclick="magmar_attack()">magmar tackle</button>
+    <button id="magnetite" onclick="magnetite_attack()">magnetite tackle</button>
+    <button id="magmar" onclick="magmar_attack()">magmar tackle</button>
+</div>
 
 
 
-
-
+<style>
+    div {
+        text-align: center;
+    }
+    button {
+        background-color: aqua;
+        padding: 4%;
+        font-size: larger;
+        border-radius: 13px;
+        
+    }
+</style>
 
 
 
