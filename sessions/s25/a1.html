@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img src="work.png">
+
+    <div>   
+<ul>Answers:
+    <li>    
+        <code>
+
+            db.user.find(
+                {
+                    $or: [
+                        {"firstname":{$regex:"a"}},
+                        {"lastname":{$regex:"a"}}
+                            ],
+                    $and: [
+                        {"isActive":True}
+                    ]
+                }
+            );        
+    </code>
+    </li>
+    <li><br><br></li>
+    <li>
+        db.user.find(
+            {
+                    "course":{$regex:"a"},
+                $and: [
+                    int(price) >= 1300
+                ]
+            }
+        );   
+    </li>
+    <li>Or</li>
+    <li>
+        <code>
+
+            db.user.find(
+                {
+                        "course":{$regex:"a"},
+                        "price":{$gt: 1300 }
+                    
+                }
+            );   
+            
+        </code>
+    </li>
+</ul>
+
+
+</body>
+</html>

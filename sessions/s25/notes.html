@@ -1,0 +1,192 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Notes <input value="https://gitlab.com/tuitt/students/batch125/resources/s255/d1">
+
+    <script>
+        //Read
+	//find({query}, {projection})
+
+
+db.user.insertMany(
+	[
+		{
+			"gender": "male",
+			"age": "28",
+			"isAdmin": true,
+			"sched": "full-time"
+		},
+		{
+			"gender": "female",
+			"age": "26",
+			"isAdmin": true,
+			"sched": "full-time"
+		},
+		{
+			"gender": "male",
+			"age": "30",
+			"isAdmin": false,
+			"sched": "part-time"
+		},
+		{
+			"gender": "female",
+			"age": "21",
+			"isAdmin": false,
+			"sched": "part-time"
+		},
+		{
+			"gender": "female",
+			"age": "23",
+			"isAdmin": true,
+			"sched": "full-time"
+		},
+		{
+			"gender": "male",
+			"age": "30",
+			"isAdmin": true,
+			"sched": "part-time"
+		},
+		{
+			"gender": "female",
+			"age": "25",
+			"isAdmin": false,
+			"sched": "part-time"
+		},
+		{
+			"gender": "male",
+			"age": "24",
+			"isAdmin": true,
+			"sched": "full-time"
+		},
+		{
+			"gender": "male",
+			"age": "26",
+			"isAdmin": true,
+			"sched": "full-time"
+		},
+		{
+			"gender": "female",
+			"age": "22",
+			"isAdmin": false,
+			"sched": "part-time"
+		}
+	]
+);
+
+//find();
+	// return all documents
+
+//parameters of find():
+	//query
+	//projection
+
+
+//Query
+	//query using single field
+	db.user.find(
+		{
+			"gender": "male"
+		}
+	);
+	//multiple fields
+	db.user.find(
+		{
+			"gender": "male",
+			"isAdmin": true,
+		}
+	);
+
+		//add another field
+	db.user.find(
+		{
+			"gender": "male",
+			"isAdmin": true,
+			"sched": "full-time"
+		}
+	);
+		//how about adding age?
+			//use query operator COMPARISON
+
+	//COMPARISON Query Operator
+	db.user.find(
+		{
+			"gender": "male",
+			"isAdmin": true,
+			"sched": "full-time",
+			"age": {$gt: "30"}
+		}
+	);
+
+	//LOGICAL Query Operator
+		//$and operator
+	db.user.find(
+		{
+			$and: [
+				{"gender": "female"}, 
+				{"isAdmin": false}, 
+			]
+		}
+	);
+	//or by default:
+	db.user.find(
+		{ 
+			"gender": "female", 
+			"isAdmin": false
+		} 
+	);
+
+		//$or
+	db.user.find(
+		{
+			$or: [
+				{"gender": "female"},
+				{"isAdmin": false}
+			]
+		}
+	);
+
+	//Evaluation Query Operator
+		//$regex
+	db.user.find(
+		{
+			"sched": { $regex: "A", $options: "i"},
+			$or: [{"firstname":{$regex:"a"}},
+				{"lastname":{$regex:"a"}}
+					]
+		}
+	);
+
+//Field Projection
+	
+	//excluded the fields with a value of 0
+	db.user.find(
+		{
+			"sched": "part-time"
+		},
+		{
+			"_id": 0,
+			"age": 0
+		}
+	);
+
+	//inclusion of fields to be projected
+	db.user.find(
+		{
+			"sched": "part-time"
+		},
+		{
+			"_id": 1,
+			"sched": 1
+		}
+	);
+
+    </script>
+</body>
+</html>
