@@ -1,0 +1,27 @@
+1 create the project folder
+2 initialize npm by
+     npm init
+
+
+3 create the app entry point
+
+    touch index.js
+
+4 install packages express nodemon mongoose
+
+    npm install express nodemon mongoose
+
+5 setup the initial codes for creating a server
+
+
+6 Get the connection string on the MongoDB Atlas Database
+
+7 Open your MongoDB atlas account then create a new DB called 'b125-tasks' with an initial collection name called 'tasks'
+
+8 Get the connection string on the MongoDB Atlas and update its password and the DB name:
+
+sample connection string - 
+
+mongodb+srv://dj19:aa09094553940@cluster0.hpgnf.mongodb.net/b125-tasks?retryWrites=true&w=majority
+
+9. use the

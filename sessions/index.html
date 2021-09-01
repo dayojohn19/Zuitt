@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+// put 
+//  npm install express nodemon mongoose
+
+const express = require('express');
+const mongoose = require('mongoose'); //this code is to be used on out database connection and creation for our existing MongoDb
+
+const app = express(); // creating a server through the use of app
+app.use(3000, ()=> console.log(`server is running ${port}`));
+app.use(express.urlencoded({extended:true}));
+app.listen(express.json());
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,176 @@
+const express = require('express');
+const mongoose = require('mongoose'); //this code is to be used on our db connection and to create our schema and model for our existing MongoDB atlast collection
+const app = express(); //creating a server through the use of app
+const port = 3000;
+
+app.use(express.json());
+app.use(express.urlencoded({extended:true}));
+
+//mongoose.connect - is a way to connect our mongodb atlas db connection string to our server
+//paste inside the connect() method the connection string copied from the mongodb atlas db, it must be enclosed with double/single/backticks qoute
+//remember to replace the password and db name with their actual values
+//Due to updates made by MongoDB Atlas developers, the default connection string is being flagged as an error, to skip that error or warning that we are going to encounter in the future, we will the useNewUrlParser and useUnifiedTopology objects inside our mongoose.connect
+mongoose.connect("mongodb+srv://admin:anggandako@zuitt-bootcamp.hjmb5.mongodb.net/b125-tasks?retryWrites=true&w=majority", 
+{
+	useNewUrlParser:true,
+	useUnifiedTopology:true
+}
+).then(()=> { //if the mongoose suceeded on the connection, then we will console.log message
+	console.log("Successfully Connected to Database!");
+}).catch((error)=> { //handles error when the mongoose failed to connect on our mongodb atlas database
+	console.log(error);
+});
+
+/* ---------------------------------------------------------------------------------------- */
+
+/*Schema - gives a structure of what kind of record/document we are going to contain on our database*/
+// Schema() method - determines the structure of the documents to be written in the database
+// Schema acts as blueprint to our data
+// We used the Schema() constructor of the Mongoose dependency to create a new Schema object for our tasks collection
+// The "new" keyword, creates a new Schema
+const taskSchema = new mongoose.Schema({
+	//Define the fields with their corresponding data type
+	//For task, it needs a field called 'name' and 'status'
+	// The field name has a data type of 'String'
+	// The field status has a data type of 'Boolean' with a default value of 'false'
+	name: String,
+	status: {
+		type: Boolean,
+		//Default values are the predefined values for a field if we don't put any value
+		default: false
+	}
+});
+
+/*  to perform the CRUD operation for our defined collections with corresponding schema*/
+//The Task variable will contain the model for our tasks collection that and shall perform the CRUD operations
+//The first parameter of the mongoose.model method indicates the collection in where to store the data. Take note: the collection name must be written in singular form and the first letter of the name must in uppercase
+//The second parameter is used to specify the Schema/Blueprint of the documents that will be stored on the tasks collection
+const Task = mongoose.model('Task', taskSchema);
+
+/*
+	Mini activity Instruction:
+	1. Create a Schema for users collection with below fields and data types:
+		firstName - string
+		lastName - string
+		userName - string
+		password - string
+	2. Declare the model for the user schema.
+	5mins
+*/
+
+const userSchema = new mongoose.Schema({
+	firstName: String,
+	lastName: String,
+	userName: String,
+	password: String
+});
+const User = mongoose.model(`User`,userSchema);
+
+/*
+	Business Logic - Todo list application
+	- CRUD operation for our Tasks collection
+*/
+//insert new task
+app.post('/add-task', (req, res) => {
+	//call the model for our tasks collection
+	//create an instance of the task model and save it to our database
+	//creating a new Task with a task name 'PM Break' through the use of the Task Model
+	let newTask = new Task({
+		name: req.body.name
+	});
+	//Telling our server that the newTask will now be saved as a new document to our Task collection on our database
+	//.save() - saves a new document to our db
+	//on our callback, it will receive 2 values, the error and the saved document
+	//error value shall contain the error whenever there is an error encountered while we are saving our document
+	//savedTask shall contain the newly saved document from the db once the saving process is successful
+	newTask.save((error, savedTask)=>{
+		if (error) {
+			console.log(error);
+		} else {
+			res.send(`New task saved! ${savedTask}`);
+		}
+	});
+});
+
+/*
+	Mini activity - perform Create operation for our Users collection
+	1. Create a route with an endpoint '/register' that shall do the following:
+
+		a. Receives a request body with field and values for firstName, lastName, userName and password from the client
+		b. Use the request body to create an instance of new user model 
+		c. Save the new user model and once the user is saved send a response back to the client the user details
+
+		Register these users:
+		- firstname - lastname - username - password
+		Peter Parker spidey spiderman2021
+		Gwen Stacy gwen_s gwenstacy2021
+		Doctor Strange dr_strange drstrangesince2021
+	
+	2. Test it on your postman
+	15mins (2:22pm)
+*/
+app.post('/register',(req, res)=> {
+	let newUser = new User
+	({
+		firstName: req.body.firstName,
+		lastName: req.body.lastName, 
+		userName: req.body.userName, 
+		password: req.body.password
+	});
+
+	newUser.save((error, savedUser)=> {
+		if (error){
+			console.log(error);
+		} else {
+			res.send(`New user saved! ${savedUser}`);
+		}
+	});
+});
+
+// Retrieve all tasks
+app.get('/retrieve-tasks', (req, res)=> {
+	//find({}) will retrieve all the documents from the tasks collection
+	// the error on the callback will handle the errors encountered while retrieve the records
+	// the records on the callback will handle the raw data from the database
+	Task.find({}, (error, records)=> {
+		if(error){
+			console.log(error);
+		} else {
+			res.send(records);
+		}
+	});
+});
+
+//retrieve tasks that are done, means the status = true
+app.get('/retrieve-tasks-done', (req, res)=>{
+	//the Task Model will return all the tasks that has a status equal to true
+	Task.find({ status: true }, (error, records)=> {
+		if(error){
+			console.log(error);
+		} else {
+			res.send(records);
+		}
+	});
+});
+	
+
+//Update operation
+app.put('/complete-task/:taskId', (req, res)=> {
+	// res.send({ urlParams: req.params.taskId });
+	//1. Find the specific record using its ID
+	//2. And update it
+	//findByIdAndUpdate(<id>)
+	let taskId = req.params.taskId;
+	// url parameters - these are the values defined on the URLs
+	// to get the url parameters - req.params.<paramsName>
+	// :taskId - is a way to indicate that we are going to receive a url parameter, these are what we call a 'wildcard'
+	Task.findByIdAndUpdate(taskId, { status:true }, (error, updatedTask)=>{
+		if (error) {
+			console.log(error);
+		} else {
+			res.send(`Task completed successfully!`);
+		}
+	});
+});
+
+app.listen(port, ()=> console.log(`Server is running at port ${port}`));
