@@ -1,0 +1,97 @@
+
+
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <title>Using React To add</title>
+    <!-- <script>
+        function time() {
+            alert('TIme is up');
+        }
+        setTimeout(time, 100000);
+    </script>
+    <style>
+        .footer {
+            background-color: rgba(255, 235, 205, 0.582);
+            font-size: larger;
+        }
+        #app {
+            text-align: center;
+            font-family: sans-serif;
+        }
+        #problem {
+            font-size: 100px;
+        }
+        #scored {
+            font-size: 50px;
+        }
+        #winner {
+            text-align: center;
+            font-family: sans-serif;
+            font-size: 150px;
+        }
+        div {
+            text-align: center;
+        }
+        #scored{
+            opacity: 0.5;
+            text-shadow: blanchedalmond;
+            text-emphasis-color: red;
+        }
+    </style>     -->
+</head>
+<body>
+    <div id="count"></div>
+    <div id="app"></div>
+    <h1></h1>
+<!-- ADD -->
+    <script type="text/babel">
+
+
+    function AppContent(course)  {
+        return  (
+            <div>
+                <section>
+                    <h1>{course.name}</h1>
+                    <h4>Description</h4>
+                    <p>{course.description}</p>
+                    <Count />
+                </section>
+            </div>
+        );
+    }
+    function App() {
+        return (
+            <div>
+                <AppContent name="Title1" description="firstone"/>
+                <AppContent name="title2" description="second"/>
+                <AppContent name="title3" description="third des"/>
+            </div>
+        );
+    }
+    function Count() {
+        const [count, setCount] = React.useState(0);  
+          function updateCount() {
+                setCount(count + 1);
+          }
+        return  (
+            <div>
+                <div>{count}</div>
+                <button className="byn btn-primary" onClick={updateCount}>Count</button>
+            </div>
+        );
+    }
+
+    function Container() {
+        return (
+            <Toast.Header>
+          <strong className="mr-auto">React-Bootstrap</strong>
+        </Toast.Header>
+        )
+    }
+    ReactDOM.render(<App />, document.querySelector("#app"));
+    ReactDOM.render(<Container />, document.querySelector("#count"));
+
+
+
+    </script>

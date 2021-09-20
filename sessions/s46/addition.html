@@ -1,0 +1,137 @@
+{% extends "a_index/layout.html" %}
+
+{% load static %}
+    {% block body %}
+
+
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <title>Using React To add</title>
+    <script>
+        function time() {
+            alert('TIme is up');
+        }
+        setTimeout(time, 100000);
+    </script>
+    <style>
+        .footer {
+            background-color: rgba(255, 235, 205, 0.582);
+            font-size: larger;
+        }
+        #app {
+            text-align: center;
+            font-family: sans-serif;
+        }
+        #problem {
+            font-size: 100px;
+        }
+        #scored {
+            font-size: 50px;
+        }
+        #winner {
+            text-align: center;
+            font-family: sans-serif;
+            font-size: 150px;
+        }
+        div {
+            text-align: center;
+        }
+        #scored{
+            opacity: 0.5;
+            text-shadow: blanchedalmond;
+            text-emphasis-color: red;
+        }
+    </style>    
+</head>
+<body>
+    <div class="footer"> Using React to manipulate the page and its Computation</div>
+    <div id="app_add"></div>
+    <div id="app2"></div>
+    
+<!-- ADD -->
+<script type="text/babel">
+    class App extends React.Component {        
+        constructor(props) {
+            super(props);
+            this.state  =   {
+                num1:   1,
+                num2:   2,
+                response: "", 
+                score:  0,
+                count: 0
+            };
+        }
+        render() { 
+            //if win 
+            if (this.state.score === 100) {
+                return (
+                    <div id="winner">
+                        You Won, Congratstulations
+                        </div>
+                )
+            } 
+            //
+            return (
+            <div>
+                <div id="problem">
+                    {this.state.num1} + {this.state.num2}
+                </div>
+                    <input id="scored" onKeyPress={this.inputKeyPress} onChange={this.updateResponse}  value={this.state.response} />
+                <div>
+                    <p>Press Enter</p>
+                    <h1>Score:  {this.state.score}/{this.state.count}</h1>
+                </div>
+                <div>100/100 to win</div>
+
+                <div><p> Why Win? Print screen the after you won and send to me, for cash prize, no wrong answer 100/100</p> </div>
+            </div>
+            
+            );
+        }
+        
+        count = () => {
+                this.setState(state => ({
+                    count: state.count + 1
+                }));
+            }
+
+        inputKeyPress = (event) => {
+            if (event.key === 'Enter')
+            {
+                
+                const answer = parseInt(this.state.response);
+                if (answer === this.state.num1 + this.state.num2) 
+                    {this.setState(state => ({
+                        score: state.score + 1,
+                        count: state.count + 1,
+                        num1: Math.ceil(Math.random() * 10),
+                        num2: Math.ceil(Math.random() * 10),
+                        response: ""
+                        }));}
+                    else 
+                    {this.setState(state => ({
+                        score:  state.score -1,
+                        count: state.count + 1,
+                        response: ""
+                    }))}
+            }
+
+        }
+        updateResponse = (evet) => {
+            this.setState({
+                response: event.target.value
+            });
+        }
+
+
+    }
+
+    ReactDOM.render(<App />, document.querySelector("#app_add"));
+
+</script>
+
+<!-- END ADD-->
+
+
+    {% endblock %}
