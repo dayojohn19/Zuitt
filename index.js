@@ -42,8 +42,9 @@ function purchase(age, price) {
             {
                 // x  = (price*0.20).toFixed(2);
                 // return x.toString();
-                x.toFixed(2)
-                return x.toString()
+                z = price - ((x/100)*20) ;
+                b = z.toFixed(2);
+                return b.toString();
             }
 
 
@@ -53,6 +54,12 @@ function purchase(age, price) {
             // round the price
             z = x.toFixed(2);
             return z.toString();
+        }
+        else if (age <=65 )
+        {
+            c = x *0.20;
+            v = c.toFixed(2);
+            return v.toString();
         }
 
 
