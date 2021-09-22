@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        letter = 'aa';
+        sentence = 'a a aaaabc abc bcd';    
+function countLetter(letter, sentence) {
+    x = letter.length ;
+    // checks if the letter is valid
+    if (typeof letter === 'string'){
+        // check if the letter is single
+        if (x=1)
+        {
+            c = sentence.split('c').length;
+            console.log('the letter is a single letter and it appeared '+ c + ' times');
+            console.log(parseInt(c));
+            return c;
+        }
+        else {
+           return undefined
+        }
+    }
+    else {
+        return undefined
+    }
+
+    // Check first whether the letter is a single character.
+    // If letter is a single character, count how many times a letter has occurred in a given sentence then return count.
+    // If letter is invalid, return undefined.    
+}
+countLetter(letter, sentence)
+            </script>
+</body>
+</html>
