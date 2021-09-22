@@ -3,13 +3,16 @@ function countLetter(letter, sentence) {
     // checks if the letter is single
     if (letter.length = 1){
         // check if the letter is single
-        if (x=1)
+        if (x==1)
         {
             c = sentence.split(letter).length;
             return parseInt(c-1);
-        }        
-    }else{return undefined}
-
+        }    
+ 
+    }
+    else
+    {
+        return k}   
     // Check first whether the letter is a single character.
     // If letter is a single character, count how many times a letter has occurred in a given sentence then return count.
     // If letter is invalid, return undefined.
@@ -47,12 +50,7 @@ function purchase(age, price) {
                 return b.toString();
             }
 
-        else if (age >= 65 )
-        {
-            z = price - ((x/100)*20) ;
-            b = z.toFixed(2);
-            return b.toString();
-        }
+
             // check if age is between 64 and 22
         else if ( age <= 64 && age >= 22)
         {   
@@ -60,7 +58,12 @@ function purchase(age, price) {
             z = x.toFixed(2);
             return z.toString();
         }
- 
+        else if (age >= 65 )
+        {
+            z = price - ((x/100)*20) ;
+            b = z.toFixed(2);
+            return b.toString();
+        }
 
 
     }
