@@ -25,10 +25,12 @@ function isIsogram(text) {
     x = text.toLowerCase();
     z = (/([a-zA-Z]).*?\1/).test(x) ;
     // cant in z but in console returns true/false z
-    if (x)
-    {return true}
-    else
+    if (z === true)
     {return false}
+    else
+    {return true}
+
+
     // An isogram is a word where there are no repeating letters.
     // The function should disregard text casing before doing anything else.
     // If the function finds a repeating letter, return false. Otherwise, return true.
