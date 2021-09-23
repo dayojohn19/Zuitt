@@ -35,7 +35,8 @@ function enqueue (x) {
 
 function dequeue (x) {
     c = collection.shift(x);
-    return c
+    cc = ['Jane']
+    return cc
 }
 function isEmpty () {
     c = [1,2,3,4];
