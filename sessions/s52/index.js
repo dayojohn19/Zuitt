@@ -3,13 +3,16 @@ function countLetter(letter, sentence) {
     // checks if the letter is single
     if (letter.length = 1){
         // check if the letter is single
-        if (x=1)
+        if (x==1)
         {
             c = sentence.split(letter).length;
             return parseInt(c-1);
-        }        
-    }else{return undefined}
-
+        }    
+ 
+    }
+    else
+    {
+        return k}   
     // Check first whether the letter is a single character.
     // If letter is a single character, count how many times a letter has occurred in a given sentence then return count.
     // If letter is invalid, return undefined.
@@ -22,10 +25,12 @@ function isIsogram(text) {
     x = text.toLowerCase();
     z = (/([a-zA-Z]).*?\1/).test(x) ;
     // cant in z but in console returns true/false z
-    if (x)
-    {return true}
-    else
+    if (z === true)
     {return false}
+    else
+    {return true}
+
+
     // An isogram is a word where there are no repeating letters.
     // The function should disregard text casing before doing anything else.
     // If the function finds a repeating letter, return false. Otherwise, return true.
@@ -38,12 +43,13 @@ function purchase(age, price) {
     if (age > 13 )
     {
         x = price;
-        if (age >= 13 && age <= 21 )
+        if (age >= 13 && age <= 21 || age>= 65)
             {
                 // x  = (price*0.20).toFixed(2);
                 // return x.toString();
-                x.toFixed(2)
-                return x.toString()
+                z = price - ((x/100)*20) ;
+                b = z.toFixed(2);
+                return b.toString();
             }
 
 
