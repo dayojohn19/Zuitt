@@ -8,7 +8,8 @@ function print () {
 
 function enqueue (x) {
     c = collection.push(x);
-    collection = Array.from(c);
+    // collection = Array.from(c);
+
     return collection
 }
 
@@ -23,7 +24,7 @@ function enqueue (x) {
 // }
 
 // function enqueue (x) {
-//     // c = {0:'Jane', 1:'Bob',3:'Cherry'};
+//     // c = {0:'Jane', 1:'Bob',3:'Cherry'}`;
 //     cc = ['jane','Bob','Cherry'];
 //     z = cc.splice(cc => cc.length == x);
 //     zz = cc.splice(x)
