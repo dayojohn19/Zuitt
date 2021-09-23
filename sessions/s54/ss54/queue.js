@@ -9,7 +9,6 @@ function print () {
 function enqueue (x) {
     c = collection.push(x);
     // collection = Array.from(c);
-
     return collection
 }
 
@@ -34,8 +33,8 @@ function enqueue (x) {
 
 
 
-function dequeue () {
-    c = ['Jane'];
+function dequeue (x) {
+    c = collection.shift(x);
     return c
 }
 function isEmpty () {
