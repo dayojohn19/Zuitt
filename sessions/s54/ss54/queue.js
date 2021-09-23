@@ -17,18 +17,18 @@ function dequeue (x) {
     return cc
 }
 function isEmpty () {
-    c = [1,2,3,4];
+    c = collection;
     b = c == 0 ;
     return b
 }
 function size () {
-    c = [1,2,3]
-    b = c.length
+    c = collection;
+    b = c.length;
     return b
 }
 function front () {
-    c = ['Jone','Jane','John'];
-    v = c[1];
+    c = collection;
+    v = c[0];
     return v
 }
 
